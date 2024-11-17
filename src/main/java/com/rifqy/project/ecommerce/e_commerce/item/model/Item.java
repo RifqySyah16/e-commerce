@@ -29,6 +29,8 @@ public class Item {
 
     private BigDecimal price;
 
+    private Integer stock;
+
     private Double weight;
 
     public ItemResponseDTO convertToResponse() {
@@ -36,6 +38,7 @@ public class Item {
                 .id(this.id)
                 .itemName(this.itemName)
                 .price(this.price)
+                .stock(this.stock)
                 .weight(this.weight)
                 .build();
     }

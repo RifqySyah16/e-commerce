@@ -24,6 +24,9 @@ public class ItemRequestDTO {
     @NotNull(message = "Price is required")
     private BigDecimal price;
 
+    @NotNull(message = "Stock is required")
+    private Integer stock;
+
     @NotNull(message = "Weight is required")
     private Double weight;
 
@@ -32,6 +35,7 @@ public class ItemRequestDTO {
                 .id(this.id)
                 .itemName(this.itemName)
                 .price(this.price)
+                .stock(this.stock)
                 .weight(this.weight)
                 .build();
     }

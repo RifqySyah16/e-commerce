@@ -17,5 +17,6 @@ public class ItemResponseDTO {
     private Long id;
     private String itemName;
     private BigDecimal price;
+    private Integer stock;
     private Double weight;
 }
