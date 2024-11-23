@@ -3,6 +3,7 @@ package com.rifqy.project.ecommerce.e_commerce.applicationuser.model;
 import java.math.BigDecimal;
 
 import com.rifqy.project.ecommerce.e_commerce.applicationuser.model.dto.RegisterationResponseDTO;
+import com.rifqy.project.ecommerce.e_commerce.applicationuser.model.dto.RoleName;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Builder.Default;
 
 @Entity
 @Getter
@@ -33,7 +35,10 @@ public class ApplicationUser {
 
     private String password;
 
-    private BigDecimal balance;
+    @Default
+    private BigDecimal balance = BigDecimal.ZERO;
+
+    private RoleName roleName;
 
     public RegisterationResponseDTO convertToResponse() {
         return RegisterationResponseDTO.builder()
@@ -43,6 +48,7 @@ public class ApplicationUser {
                 .username(this.username)
                 .password(password)
                 .balance(this.balance)
+                .roleName(this.roleName)
                 .build();
     }
 }

@@ -3,6 +3,7 @@ package com.rifqy.project.ecommerce.e_commerce.applicationuser.model.dto;
 import com.rifqy.project.ecommerce.e_commerce.applicationuser.model.ApplicationUser;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,9 @@ public class RegisterationRequestDTO {
     @NotBlank(message = "Password is required")
     private String password;
 
+    @NotNull(message = "Role is required")
+    private RoleName roleName;
+
     public ApplicationUser convertToEntity() {
         return ApplicationUser.builder()
                 .id(this.id)
@@ -34,6 +38,7 @@ public class RegisterationRequestDTO {
                 .email(this.email)
                 .username(this.username)
                 .password(this.password)
+                .roleName(this.roleName)
                 .build();
     }
 }

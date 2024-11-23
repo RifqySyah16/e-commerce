@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.rifqy.project.ecommerce.e_commerce.applicationuser.model.ApplicationUser;
+import com.rifqy.project.ecommerce.e_commerce.applicationuser.model.dto.RoleName;
 import com.rifqy.project.ecommerce.e_commerce.authentication.model.UserPrincipal;
 
 import lombok.RequiredArgsConstructor;
@@ -43,6 +44,10 @@ public class ApplicationUserService implements UserDetailsService {
         String encodedPassword = this.bCryptPasswordEncoder.encode(rawPassword);
         newUser.setPassword(encodedPassword);
 
+        if (newUser.getRoleName() == null) {
+            newUser.setRoleName(RoleName.USER);
+        }
+
         return this.applicationUserRepository.save(newUser);
     }
 
@@ -50,5 +55,4 @@ public class ApplicationUserService implements UserDetailsService {
         ApplicationUser updatedUser = this.getOne(existingUser.getId());
         this.applicationUserRepository.save(updatedUser);
     }
-
 }

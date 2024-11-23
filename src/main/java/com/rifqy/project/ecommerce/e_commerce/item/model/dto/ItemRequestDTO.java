@@ -3,6 +3,7 @@ package com.rifqy.project.ecommerce.e_commerce.item.model.dto;
 import java.math.BigDecimal;
 
 import com.rifqy.project.ecommerce.e_commerce.item.model.Item;
+import com.rifqy.project.ecommerce.e_commerce.item.model.ItemCategory;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -21,6 +22,9 @@ public class ItemRequestDTO {
     @NotBlank(message = "Item name is required")
     private String itemName;
 
+    @NotNull(message = "Category is required")
+    private ItemCategory itemCategory;
+
     @NotNull(message = "Price is required")
     private BigDecimal price;
 
@@ -34,6 +38,7 @@ public class ItemRequestDTO {
         return Item.builder()
                 .id(this.id)
                 .itemName(this.itemName)
+                .itemCategory(this.itemCategory)
                 .price(this.price)
                 .stock(this.stock)
                 .weight(this.weight)

@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import com.rifqy.project.ecommerce.e_commerce.item.model.dto.ItemResponseDTO;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,6 +29,9 @@ public class Item {
 
     private String itemName;
 
+    @Enumerated(EnumType.STRING)
+    private ItemCategory itemCategory;
+
     private BigDecimal price;
 
     private Integer stock;
@@ -37,6 +42,7 @@ public class Item {
         return ItemResponseDTO.builder()
                 .id(this.id)
                 .itemName(this.itemName)
+                .itemCategory(this.itemCategory)
                 .price(this.price)
                 .stock(this.stock)
                 .weight(this.weight)

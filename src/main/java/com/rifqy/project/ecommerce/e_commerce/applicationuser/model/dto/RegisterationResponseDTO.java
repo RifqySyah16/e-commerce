@@ -20,4 +20,5 @@ public class RegisterationResponseDTO {
     private String username;
     private String password;
     private BigDecimal balance;
+    private RoleName roleName;
 }

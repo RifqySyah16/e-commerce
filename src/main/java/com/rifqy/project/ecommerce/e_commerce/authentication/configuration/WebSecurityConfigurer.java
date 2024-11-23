@@ -86,6 +86,8 @@ public class WebSecurityConfigurer {
                                                                 .requestMatchers(HttpMethod.POST, "/registerations",
                                                                                 "/registerations/**")
                                                                 .permitAll()
+                                                                .requestMatchers(HttpMethod.GET, "/items", "/items/**")
+                                                                .permitAll()
                                                                 .anyRequest()
                                                                 .authenticated());
 
