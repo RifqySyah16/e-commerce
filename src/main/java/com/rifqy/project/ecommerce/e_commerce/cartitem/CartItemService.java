@@ -1,5 +1,11 @@
 package com.rifqy.project.ecommerce.e_commerce.cartitem;
 
-public class CartItemService {
+import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class CartItemService {
+    private final CartItemRepository cartItemRepository;
 }
