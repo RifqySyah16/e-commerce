@@ -3,6 +3,7 @@ package com.rifqy.project.ecommerce.e_commerce.cart.model;
 import java.util.List;
 
 import com.rifqy.project.ecommerce.e_commerce.applicationuser.model.ApplicationUser;
+import com.rifqy.project.ecommerce.e_commerce.applicationuser.model.dto.RegisterationResponseDTO;
 import com.rifqy.project.ecommerce.e_commerce.cart.model.dto.CartResponseDTO;
 import com.rifqy.project.ecommerce.e_commerce.cartitem.model.CartItem;
 
@@ -36,8 +37,11 @@ public class Cart {
     private List<CartItem> cartItems;
 
     public CartResponseDTO convertToResponse() {
+        RegisterationResponseDTO registerationResponseDTO = this.applicationUser.convertToResponse();
+
         return CartResponseDTO.builder()
                 .id(this.id)
+                .registerationResponseDTO(registerationResponseDTO)
                 .build();
     }
 }

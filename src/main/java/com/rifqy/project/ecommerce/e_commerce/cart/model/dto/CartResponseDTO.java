@@ -1,5 +1,7 @@
 package com.rifqy.project.ecommerce.e_commerce.cart.model.dto;
 
+import com.rifqy.project.ecommerce.e_commerce.applicationuser.model.dto.RegisterationResponseDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,4 +15,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CartResponseDTO {
     private Long id;
+    private RegisterationResponseDTO registerationResponseDTO;
 }

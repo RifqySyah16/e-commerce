@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.rifqy.project.ecommerce.e_commerce.cart.model.Cart;
 import com.rifqy.project.ecommerce.e_commerce.item.model.Item;
 
 import lombok.RequiredArgsConstructor;
@@ -46,5 +47,20 @@ public class ItemService {
     public void delete(Long id) {
         Item existingItem = this.getOne(id);
         this.itemRepository.deleteById(existingItem.getId());
+    }
+
+    public void isStockAvailable(Item item, Integer quantity) {
+        Item existingItem = this.getOne(item.getId());
+        if (existingItem.getStock() > quantity) {
+            throw new StockNotAvailableException("Stock not available");
+        }
+        Integer remainingStock = existingItem.getStock() - quantity;
+        item.setStock(remainingStock);
+        this.update(item);
+    }
+
+    public Cart reduceStock(Item item, Integer quantity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'reduceStock'");
     }
 }
