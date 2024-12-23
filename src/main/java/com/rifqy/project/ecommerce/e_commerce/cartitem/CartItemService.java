@@ -4,9 +4,16 @@ import com.rifqy.project.ecommerce.e_commerce.cart.model.Cart;
 import com.rifqy.project.ecommerce.e_commerce.cartitem.model.CartItem;
 import com.rifqy.project.ecommerce.e_commerce.item.model.Item;
 
-public class CartItemService {
+import org.springframework.stereotype.Service;
 
-    public CartItem create(Item item, Cart cart) {
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class CartItemService {
+    private final CartItemRepository cartItemRepository;
+
+    public CartItem create(Item existingItem, Cart existingCart) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'create'");
     }
